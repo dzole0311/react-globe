@@ -1,0 +1,89 @@
+{
+  "version": 8,
+  "name": "Desert Light",
+  "sources": {
+    "composite": {
+      "url": "mapbox://mapbox.mapbox-streets-v8",
+      "type": "vector"
+    }
+  },
+  "sprite": "mapbox://sprites/mapbox/bright-v9",
+  "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": { "background-color": "#f7e4b2" }
+    },
+    {
+      "id": "land",
+      "type": "fill",
+      "source": "composite",
+      "source-layer": "land",
+      "paint": {
+        "fill-color": "#f1d9a3",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "hillshade",
+      "type": "fill",
+      "source": "composite",
+      "source-layer": "hillshade",
+      "paint": {
+        "fill-color": "#e1b47a",
+        "fill-opacity": 0.35
+      }
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "composite",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "#d9c8a8"
+      }
+    },
+    {
+      "id": "road",
+      "type": "line",
+      "source": "composite",
+      "source-layer": "road",
+      "paint": {
+        "line-color": "#cda35e",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.1, 10, 1.5]
+      }
+    },
+    {
+      "id": "admin",
+      "type": "line",
+      "source": "composite",
+      "source-layer": "admin",
+      "paint": {
+        "line-color": "#b38341",
+        "line-width": 0.5
+      }
+    },
+    {
+      "id": "place-label",
+      "type": "symbol",
+      "source": "composite",
+      "source-layer": "place_label",
+      "layout": {
+        "text-field": ["get", "name_en"],
+        "text-font": ["DIN Offc Pro Regular", "Arial Unicode MS Regular"],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 3, 8, 10, 14]
+      },
+      "paint": {
+        "text-color": "#8b5e2b",
+        "text-halo-color": "#f9e9bf",
+        "text-halo-width": 1
+      }
+    }
+  ],
+  "id": "desert-style",
+  "metadata": {
+    "mapbox:type": "template",
+    "mapbox:autocomposite": true
+  }
+}

@@ -1,0 +1,63 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+.story-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40vw;
+  height: 100vh;
+  overflow-y: scroll;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.story-container h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.step {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.step.active {
+  border-color: #f7931a; /* highlight color when active */
+}
+
+.step h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.step p {
+  margin: 0;
+  line-height: 1.5;
+  color: #222;
+}
+
+/* Scrollbar subtle style */
+.story-container::-webkit-scrollbar {
+  width: 8px;
+}
+.story-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
